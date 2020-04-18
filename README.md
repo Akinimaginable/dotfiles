@@ -10,7 +10,7 @@
 |-----------------------------------------------------------------------|-----------------------------------------------------------------------------------|
 | [i3-gaps](https://github.com/Airblader/i3)                            | i3wm with more features                                                           |
 | [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts)                 | Fonts patched with amazing icons                                                  |
-| [Nerd Fonts](https://github.com/FortAwesome/Font-Awesome)             | Icons font used                                                                   |
+| [Awesome Fonts](https://github.com/FortAwesome/Font-Awesome)             | Icons font used                                                                   |
 | [Compton](https://github.com/chjj/compton)                            | A compositor for X, to get window transparency and avoid tearing and vsync issues |
 | [Feh](https://github.com/derf/feh)                                    | Image viewer, useful to set a wallpaper                                           |
 |                               |
