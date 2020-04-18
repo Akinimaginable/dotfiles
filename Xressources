@@ -1,0 +1,45 @@
+!! Colours
+#define black           #121212
+#define gray            #353535
+#define white           #f7f7f7
+#define red             #ff0c2f
+#define green           #28a745
+#define violet          #6610f2
+#define lightblue       #17a2b8
+#define orange          #fd7e14
+#define blue            #005fc6
+#define primary         #780035
+#define yellow          #ffc107
+
+##########################################
+!! Urxvt:
+##########################################
+ *scrollBar: false
+ *saveLines: 1000
+ *internalBorder: 10
+ URxvt*perl-ext:
+ URxvt*perl-ext-common:
+!! Cursor
+ *cursorBlink: 1
+ *cursorUnderline: 1
+ *cursorColor: yellow
+!! Fonts
+ *font: xft:Consolas:size=11
+ *boldFont: xft:Consolas:size=11
+URxvt.depth: 32
+URxvt.background: rgba:1900/1900/1900/eeee
+
+!! URxvt Colours:
+ *foreground: white
+ *background: black
+ *color0: gray
+ *color1: red
+ *color2: green
+ *color3: yellow
+ *color4: blue
+ *color5: violet
+ *color6: lightblue
+ *color7: white
+ *color8: primary
+ *color9: orange
+ *color10: primary
