@@ -1,30 +1,31 @@
 [colors]
-background = #121212
-background-alt = #181818
-foreground = #f7f7f7
-foreground-alt = #e4e4e4
-primary = #780035
-yellow = #ff9f0a
+background = #151515
+background-alt = #262626
+foreground = #F5F5F5
+foreground-alt = #f9f9f9
+primary = #750035
+yellow = #ffc107
 red = #ff0c2f
-green = #28cd41
-blue = #0a84ff
+green = #28a745
+blue = #007bff
+violet = #580bd6
 
-[bar/xfcz]
-monitor = VGA-1
+[bar/akia]
+monitor = DVI-I-0
 width = 100%
-height = 22
+height = 23
 background = ${colors.background}
 foreground = ${colors.foreground}
 line-size = 2
 padding-left = 0
-padding-right = 2
+padding-right = 1
 module-margin-left = 1
 module-margin-right = 2
-font-0 = DejaVu:size=10
-font-1 = FontAwesome:size=10
+font-0 = Deja Vu:pixelsize=10.5
+font-1 = FontAwesome:size=10.5
 modules-left = i3
 modules-center = xwindow
-modules-right = alsa cpu temperature memory date
+modules-right = pulseaudio discord cpu temperature memory date
 
 [module/i3]
 type = internal/i3
@@ -39,9 +40,8 @@ label-unfocused-padding = 2
 label-visible = %icon%
 label-visible-background = ${colors.background-alt}
 label-visible-underline = ${colors.primary}
-label-visible-padding = 2
 label-urgent = %icon%
-label-urgrnt-background = ${color.alert}
+label-urgrnt-background = ${color.yellow}
 label-urgent-padding = 2
 ws-icon-0 = 1;
 ws-icon-1 = 2;
@@ -90,24 +90,23 @@ format-suffix-foreground = ${colors.foreground-alt}
 format-underline = ${colors.blue}
 label = %time%
 
-[module/alsa]
-type = internal/alsa
-format-volume = <ramp-volume> <bar-volume>
-format-muted =  
-bar-volume-gradient = true
-bar-volume-foreground-0 = #605eed
-bar-volume-foreground-1 = #5755d6
-bar-volume-foreground-2 = #504ec4
-bar-volume-foreground-3 = #4645a8
-bar-volume-foreground-4 = #3f3e9b
-ramp-volume-0 = 
-ramp-volume-1 = 
-ramp-volume-2 = 
-ramp-volume-3 = 
-bar-volume-width = 6
-bar-volume-indicator =
-bar-volume-fill = 
-bar-volume-fill-font = 3
-bar-volume-empty = 
-bar-volume-empty-font = 3
-bar-volume-empty-foreground = ${colors.foreground}
+[module/pulseaudio]
+type = internal/pulseaudio
+sink = alsa_output.pci-0000_12_00.3.analog-stereo
+use-ui-max = true
+interval = 5
+format-suffix-foreground = ${colors.foreground-alt}
+format-underline = ${colors.violet}
+
+[module/discord]
+type = custom/script
+exec = echo " "
+interval = 10
+tail = true
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+format-prefix-foreground = ${colors.foreground}
+format-underline = ${colors.violet}
+click-left = discord
+click-right = killall Discord
+format-prefix = ""
