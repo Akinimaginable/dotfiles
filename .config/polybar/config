@@ -1,9 +1,10 @@
 [colors]
-background = #151515
-background-alt = #262626
+background = #000000
+background-alt = #111111
 foreground = #F5F5F5
 foreground-alt = #f9f9f9
 primary = #750035
+magenta = #b5007f
 yellow = #ffc107
 red = #ff0c2f
 green = #28a745
@@ -11,9 +12,9 @@ blue = #007bff
 violet = #580bd6
 
 [bar/akia]
-monitor = DVI-I-0
+monitor = eDP-1
 width = 100%
-height = 23
+height = 22
 background = ${colors.background}
 foreground = ${colors.foreground}
 line-size = 2
@@ -23,9 +24,9 @@ module-margin-left = 1
 module-margin-right = 2
 font-0 = Deja Vu:pixelsize=10.5
 font-1 = FontAwesome:size=10.5
-modules-left = i3
-modules-center = xwindow
-modules-right = pulseaudio discord cpu temperature memory date
+modules-left = battery volume
+modules-center = i3
+modules-right = wired-network wireless-network cpu temperature memory date
 
 [module/i3]
 type = internal/i3
@@ -53,50 +54,54 @@ ws-icon-6 = 7;
 ws-icon-7 = 8;
 ws-icon-8 = 9;
 
-[module/xwindow]
-type = internal/xwindow
-label = %title%
-
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-suffix = "  "
-format-suffix-foreground = ${colors.foreground-alt}
 format-underline = ${colors.red}
-label = %percentage%%
+label =  %percentage%%
 
 [module/temperature]
 type = internal/temperature
-interval = 0.5
 thermal-zone = 0
 format-underline = ${colors.yellow}
-hwmon-path = /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon0/temp1_input
-warn-temperature = 80
+hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon7/temp1_input
+base-temperature = 30
+warn-temperature = 60
+label =  %temperature-c%
+label-warn =  %temperature-c%
+label-warn-foreground = #f00
 
 [module/memory]
 type = internal/memory
-interval = 2
-format-suffix = "  "
-format-suffix-foreground = ${colors.foreground-alt}
 format-underline = ${colors.green}
-label = %percentage_used%%
+label =  %percentage_used%%
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = ADP1
+label-discharging = %percentage%%
+label-charging = %percentage%%
+label-full = %percentage%%
+
+format-discharging = <ramp-capacity> <label-discharging>
+format-full = <ramp-capacity> <label-full>
+format-charging =  <label-charging>
+
+ramp-capacity-0 = " "
+ramp-capacity-1 = " "
+ramp-capacity-2 = " "
+ramp-capacity-3 = " "
+ramp-capacity-4 = " "
 
 [module/date]
 type = internal/date
 interval = 5
 time = %H:%M
-format-suffix = "  "
-format-suffix-foreground = ${colors.foreground-alt}
+format-prefix = "  "
+format-prefix-foreground = ${colors.foreground-alt}
 format-underline = ${colors.blue}
 label = %time%
-
-[module/pulseaudio]
-type = internal/pulseaudio
-sink = alsa_output.pci-0000_12_00.3.analog-stereo
-use-ui-max = true
-interval = 5
-format-suffix-foreground = ${colors.foreground-alt}
-format-underline = ${colors.violet}
 
 [module/discord]
 type = custom/script
@@ -110,3 +115,23 @@ format-underline = ${colors.violet}
 click-left = discord
 click-right = killall Discord
 format-prefix = ""
+
+[module/wired-network]
+type = internal/network
+interface = eth1
+
+[module/wireless-network]
+type = internal/network
+interface = wlp0s20f3
+label-connected =  %essid%
+label-disconnected =  Not Connected
+
+[module/volume]
+type = internal/volume
+
+format-volume = <ramp-volume> <label-volume>
+format-muted =  Muted
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
