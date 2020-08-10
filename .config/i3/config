@@ -22,10 +22,6 @@ bindsym $mod+Return exec urxvt
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# Dmenu
-bindsym $mod+d exec --no-startup-id dmenu_run
-bindsym $mod+Shift+d exec --no-startup-id i3-dmenu-desktop
-
 # Change focus
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
@@ -113,10 +109,10 @@ mode "resize" {
 bindsym $mod+r mode resize
 
 # Keybindings
+bindsym $mod+d exec --no-startup-id "dmenu_run -h 22"
 bindsym $mod+e exec thunar
 bindsym $mod+Shift+f exec firefox
-bindsym $mod+Shift+x exec "chromium"
-bindsym $mod+l exec "systemctl suspend && gllock"
+bindsym $mod+l exec "systemctl suspend"
 
 # Windows organization
 assign [class = "Firefox"] 1
@@ -124,18 +120,17 @@ assign [class = "Discord"] 4
 assign [class = "Spotify"] 5
 
 # Initial launch
-exec_always --no-startup-id "feh --bg-scale Images/wallpapers/flowers.jpg"
+exec_always --no-startup-id "feh --bg-scale Pictures/wallpapers/beach.jpg"
 exec_always --no-startup-id "killall polybar; polybar -r akia"
-exec --no-startup-id compton
+exec_always --no-startup-id "xrdb .Xressources"
+#exec --no-startup-id compton
 
 # Border
-gaps inner 10
-gaps outer 5
+gaps inner 7
+gaps outer 3
 smart_borders on
 smart_gaps on
 default_border pixel 0
-
-border_radius 4
 
 client.focused              #121212 #121212 #F5F5F5 #121212 #121212
 client.focused_inactive		#141414 #141414 #F5F5F5 #141414 #141414
