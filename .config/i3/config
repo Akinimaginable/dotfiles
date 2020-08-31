@@ -9,6 +9,7 @@ set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
+set $ws10 "10"
 
 # i3 fonts
 font pango:Product Sans 8
@@ -19,7 +20,7 @@ floating_modifier $mod
 # Open terminal (urxvt)
 bindsym $mod+Return exec urxvt
 
-# kill focused window
+# Kill focused window
 bindsym $mod+Shift+q kill
 
 # Change focus
@@ -27,18 +28,6 @@ bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
-
-# Move focused window (also work when mod is hold and mouse movements)
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
-
-# Alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
 
 # Split into horizontal orientation
 bindsym $mod+h split h
@@ -68,6 +57,7 @@ bindsym $mod+6 workspace $ws6
 bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
 
 # Move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
@@ -79,6 +69,7 @@ bindsym $mod+Shift+6 move container to workspace $ws6
 bindsym $mod+Shift+7 move container to workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -89,12 +80,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-    bindsym j resize shrink width 10 px or 10 ppt
-    bindsym k resize grow height 10 px or 10 ppt
-    bindsym l resize shrink height 10 px or 10 ppt
-    bindsym semicolon resize grow width 10 px or 10 ppt
 
-    # same bindings, but for the arrow keys
     bindsym Left resize shrink width 10 px or 10 ppt
     bindsym Down resize grow height 10 px or 10 pptQ
     bindsym Up resize shrink height 10 px or 10 ppt
@@ -110,26 +96,33 @@ bindsym $mod+r mode resize
 
 # Keybindings
 bindsym $mod+d exec --no-startup-id "dmenu_run -h 22"
-bindsym $mod+e exec thunar
-bindsym $mod+Shift+f exec firefox
-bindsym $mod+l exec "systemctl suspend"
+bindsym $mod+e exec "thunar"
+bindsym $mod+Shift+f exec "firefox"
+bindsym $mod+l exec "urxvt -e 'vim'"
+bindsym $mod+Shift+l exec "systemctl suspend"
 
 # Windows organization
-assign [class = "Firefox"] 1
-assign [class = "Discord"] 4
-assign [class = "Spotify"] 5
+assign [class = "firefox"] 1
+assign [class = "atom"] 2
+assign [class = "code"] 2
+assign [class = "minecraft-launcher"] 3
+assign [class = "discord"] 4
+assign [class = "spotify"] 5
+assign [class = "chromium"] 10
 
 # Initial launch
-exec_always --no-startup-id "feh --bg-scale Pictures/wallpapers/beach.jpg"
-exec_always --no-startup-id "killall polybar; polybar -r akia"
+exec_always --no-startup-id "feh --bg-scale Pictures/wallpapers/city.png"
+exec_always --no-startup-id "killall polybar; polybar -r akinimaginable"
 exec_always --no-startup-id "xrdb .Xressources"
-#exec --no-startup-id compton
+exec_always --no-startup-id "xrandr --output HDMI-2 --left-of eDP-1"
+exec_always --no-startup-id "killall picom; picom"
 
 # Border
-gaps inner 7
-gaps outer 3
+gaps inner 5
+gaps outer 2
 smart_borders on
 smart_gaps on
+border_radius 3
 default_border pixel 0
 
 client.focused              #121212 #121212 #F5F5F5 #121212 #121212
