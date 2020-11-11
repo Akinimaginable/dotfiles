@@ -1,6 +1,6 @@
 !! Colours
-#define black         #010101
-#define gray          #353535
+#define black         #0c0c0d
+#define gray          #303030
 #define white         #f5f5f5
 
 #define primary       #780035
@@ -8,14 +8,14 @@
 #define blue          #0060df
 #define lightblue     #17a2b8
 #define green         #12bc00
-#define yellow        #d7b600
+#define yellow        #ffe900
 #define red           #d70022
-#define orange        #d76e00
+#define orange        #ff9400
 
 ############################################
 !! Urxvt:
 ############################################
-  URxvt.internalBorder: 11
+  URxvt.internalBorder: 10
   URxvt.scrollBar: false
   URxvt.perl-ext:
   URxvt.perl-ext-common:
@@ -23,12 +23,12 @@
 !! Cursor
   URxvt.cursorBlink: 1
   URxvt.cursorUnderline: 1
-  URxvt.cursorColor: yellow
+  URxvt.cursorColor: orange
 !! Fonts
   URxvt.font: xft:Consolas:size=11
   URxvt.boldFont: xft:Consolas:size=11
   URxvt.depth: 32
-  URxvt.background: rgba:1000/1200/1400/dddd
+  URxvt.background: rgba:1000/1200/1300/eeee
 
 !! URxvt Colours:
  *foreground: white
