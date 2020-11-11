@@ -80,11 +80,10 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-
-    bindsym Left resize shrink width 10 px or 10 ppt
-    bindsym Down resize grow height 10 px or 10 pptQ
-    bindsym Up resize shrink height 10 px or 10 ppt
-    bindsym Right resize grow width 10 px or 10 ppt
+    bindsym Left resize shrink width 3 px or 3 ppt
+    bindsym Down resize grow height 3 px or 3 ppt
+    bindsym Up resize shrink height 3 px or 3 ppt
+    bindsym Right resize grow width 3 px or 3 ppt
 
     # back to normal: Enter or Escape or $mod+r
     bindsym Return mode "default"
@@ -95,15 +94,13 @@ mode "resize" {
 bindsym $mod+r mode resize
 
 # Keybindings
-bindsym $mod+d exec --no-startup-id "dmenu_run -h 22"
+bindsym $mod+d exec --no-startup-id "dmenu_run"
 bindsym $mod+e exec "thunar"
 bindsym $mod+Shift+f exec "firefox"
-bindsym $mod+l exec "urxvt -e 'vim'"
-bindsym $mod+Shift+l exec "systemctl suspend"
+bindsym $mod+l exec "systemctl suspend"
 
 # Windows organization
 assign [class = "firefox"] 1
-assign [class = "atom"] 2
 assign [class = "code"] 2
 assign [class = "minecraft-launcher"] 3
 assign [class = "discord"] 4
@@ -111,22 +108,18 @@ assign [class = "spotify"] 5
 assign [class = "chromium"] 10
 
 # Initial launch
-exec_always --no-startup-id "feh --bg-scale Pictures/wallpapers/city.png"
+exec_always --no-startup-id "feh --bg-scale Pictures/wallpapers/mountain.jpg"
 exec_always --no-startup-id "killall polybar; polybar -r akinimaginable"
 exec_always --no-startup-id "xrdb .Xressources"
-exec_always --no-startup-id "xrandr --output HDMI-2 --left-of eDP-1"
 exec_always --no-startup-id "killall picom; picom"
 
 # Border
-gaps inner 5
+gaps inner 10
 gaps outer 2
-smart_borders on
-smart_gaps on
-border_radius 3
 default_border pixel 0
 
-client.focused              #121212 #121212 #F5F5F5 #121212 #121212
-client.focused_inactive		#141414 #141414 #F5F5F5 #141414 #141414
-client.unfocused            #222222 #222222 #F5F5F5 #222222 #222222
-client.urgent               #ffb300 #ffb300 #F5F5F5 #ffb300 #ffb300
-client.placeholder          #121212 #121212 #F5F5F5 #121212 #121212
+client.focused              #0c0c0d #0c0c0d #f9f9fa #0c0c0d #0c0c0d
+client.focused_inactive		#141414 #141414 #f9f9fa #141414 #141414
+client.unfocused            #222222 #222222 #f9f9fa #222222 #222222
+client.urgent               #ffb300 #ffb300 #f9f9fa #ffb300 #ffb300
+client.placeholder          #0c0c0d #0c0c0d #f9f9fa #0c0c0d #0c0c0d
