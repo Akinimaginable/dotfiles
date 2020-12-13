@@ -14,7 +14,7 @@ red = #d70022
 [bar/akinimaginable]
 monitor = ${env:MONITOR:DP-0}
 width = 100%
-height = 22
+height = 20
 background = ${colors.background}
 foreground = ${colors.foreground}
 padding-left = 1
@@ -37,7 +37,7 @@ modules-right = xbacklight pulseaudio cpu memory wlan wired temperature date
 
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:35:...%
+label = %title:0:40:...%
 
 [module/i3]
 type = internal/i3
@@ -56,13 +56,13 @@ label-visible-underline = ${colors.primary}
 ws-icon-0 = 1;
 ws-icon-1 = 2;
 ws-icon-2 = 3;
-ws-icon-3 = 4;
+ws-icon-3 = 4;
 ws-icon-4 = 5;
 ws-icon-5 = 6;
 ws-icon-6 = 7;
 ws-icon-7 = 8;
 ws-icon-8 = 9;
-ws-icon-9 = 10;
+ws-icon-9 = 10;
 
 [module/cpu]
 type = internal/cpu
