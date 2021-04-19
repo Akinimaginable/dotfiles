@@ -1,0 +1,55 @@
+
+.gc-label-text {
+  color: #fafafa;
+}
+
+#view-leaderboard-ad {
+  display: none !important;
+}
+
+/* Top Alert bar warning */
+.alert,
+/* Button that shows "Offline" */
+.offline-label-wrapper,
+/* The Cast button */
+.button.button-blue,
+.button.button-blue:hover,
+/* Facebook settings button */
+.button.button-facebook,
+.button.button-facebook:hover {
+  color: white !important;
+}
+
+/* The play button */
+.button.button-green {
+  background: #a5e8d7;
+  border-radius: .1rem;
+  color: #f9f9fa !important;
+  font-size: .7rem;
+}
+
+.button.button-green:hover {
+  background: #96d3c4 !important;
+}
+
+/* The profile picture */
+.card-placeholder-wrapper {
+  background: var(--modspotify_main_fg);
+}
+
+.slider,
+.slider.enabled {
+  border: 2px solid var(--modspotify_slider_bg);
+}
+
+/* Remove linear gradient from "Header" and "Radio" */
+.Header__background-color,
+.Radio__background-color {
+  background-image: none !important;
+  background: none !important;
+}
+
+/* Ensure padlock in private session is showing */
+.profile .incognito-badge svg {
+  fill: white;
+}
