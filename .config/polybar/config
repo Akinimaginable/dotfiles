@@ -1,8 +1,8 @@
 [colors]
 background = #0d0d0d
 background-alt = #212121
-background-active = #750035
 foreground = #e0e0e0
+foreground-active = #a5e8d7
 foreground-alt = #d9d9d9
 primary = #750035
 purple = #8000d7
@@ -46,21 +46,18 @@ format = <label-state>
 label-monitor = %name%
 
 label-active = 
-label-active-foreground = ${colors.third}
-label-active-background = ${colors.background-active}
-label-active-underline= ${colors.foreground}
+label-active-foreground = ${colors.foreground-active}
+label-active-background = ${colors.background-alt}
 label-active-padding = 1
 
 label-occupied = 
 label-occupied-background = ${colors.background-alt}
 label-occupied-foreground = ${colors.foreground}
-label-occupied-underline= ${colors.foreground}
 label-occupied-padding = 1
 
 label-urgent = 
 label-urgent-foreground = ${colors.alert}
 label-urgent-background = ${colors.yellow}
-label-urgent-underline = ${colors.red}
 label-urgent-padding = 1
 
 label-empty = •
@@ -74,7 +71,6 @@ type = internal/cpu
 interval = 3
 format-suffix = " "
 format-suffix-foreground = ${colors.foreground-alt}
-format-underline = ${colors.red}
 label = %percentage:2%%
 
 [module/memory]
@@ -82,7 +78,6 @@ type = internal/memory
 interval = 3
 format-suffix = " "
 format-suffix-foreground = ${colors.foreground-alt}
-format-underline = ${colors.green}
 label = %percentage_used%%
 
 [module/wlan]
@@ -91,13 +86,11 @@ interval = 10
 interface = wlp0s20f3
 
 format-connected = <label-connected>
-format-connected-underline = #9f78e1
 format-connected-suffix = " "
 label-connected = %essid%
 
 format-disconnected =
 ;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
 
@@ -108,12 +101,10 @@ interval = 10
 
 format-connected-suffix = " "
 format-connectedsuffix-foreground = ${colors.foreground-alt}
-format-connected-underline = ${colors.purple}
 label-connected = Ethernet
 
 format-disconnected =
 ;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
 
@@ -123,7 +114,6 @@ interval = 10
 time = %H:%M
 label = %time%
 format-suffix = " "
-format-underline = ${colors.blue}
 
 [module/pulseaudio]
 type = internal/pulseaudio
@@ -161,9 +151,6 @@ label-warn-foreground = ${colors.primary}
 format-suffix = " "
 format-suffix-foreground = ${colors.foreground-alt}
 format = <label>
-format-underline = ${colors.yellow}
-format-warn = <label-warn>
-format-warn-underline = ${self.format-underline}
 
 [module/battery]
 type = internal/battery
