@@ -10,7 +10,7 @@ hc emit_hook reload
 hc keyunbind --all
 
 # Autostart
-feh --bg-scale "Pictures/wallpapers/ass.jpg"
+feh --bg-scale "Pictures/wallpapers/flowers.jpg"
 setxkbmap fr
 polybar akinimaginable &
 # My laptop touchpad settings
@@ -29,7 +29,7 @@ hc keybind $Mod-Return spawn $Term
 
 # Shortcuts
 hc keybind $Mod-Shift-l spawn systemctl suspend
-hc keybind $Mod-d spawn dmenu_run -sf "#0d0d0d" -nb "#0d0d0d" -sb "#a5e8d7" -nf "#96a6ff"
+hc keybind $Mod-d spawn dmenu_run -sf "#0d0d0d" -nb "#0d0d0d" -sb "#5a78f5" -nf "#f9f9f9" -fn "CascadiaCode"
 hc keybind $Mod-Shift-f spawn firefox
 hc keybind $Mod-e spawn thunar
 
@@ -69,7 +69,7 @@ hc keybind $Mod-Control-Down   resize down +$resizestep
 hc keybind $Mod-Control-Up     resize up +$resizestep
 hc keybind $Mod-Control-Right  resize right +$resizestep
 
-# tags
+# Tags
 tag_names=("I" "II" "III" "IV" "V" "VI" "VII" "VIII" "IX" "X")
 # QWERTY version:
 # tag_keys=({1..9} 0)
@@ -86,9 +86,9 @@ for i in ${!tag_names[@]} ; do
     fi
 done
 
-# cycle through tags
+# Cycle through tags
 hc keybind $Mod-period use_index +1 --skip-visible
-hc keybind $Mod-comma  use_index -1 --skip-visible
+hc keybind $Mod-comma use_index -1 --skip-visible
 
 # Layout
 hc keybind $Mod-r remove
@@ -131,12 +131,12 @@ hc set frame_padding 0
 hc set focus_follows_mouse 1
 hc set frame_gap 5
 
-hc attr theme.active.color "#a5e8d7"
-hc attr theme.normal.color "#99C0E7"
+hc attr theme.active.color "#5a78f5"
+hc attr theme.normal.color "#121522"
 hc attr theme.urgent.color "#fc7e7e"
 hc attr theme.inner_width 0
 hc attr theme.inner_color black
-hc attr theme.border_width 3
+hc attr theme.border_width 2
 hc attr theme.floating.border_width 2
 hc attr theme.floating.outer_width 0
 hc attr theme.floating.outer_color black
@@ -151,7 +151,7 @@ hc set mouse_recenter_gap 0
 hc set focus_crosses_monitor_boundaries 1
 hc set swap_monitors_to_get_tag 1
 
-# rules
+# Rules
 hc unrule -F
 hc rule class=firefox tag=I
 hc rule class=vscodium tag=II
@@ -177,4 +177,4 @@ herbstclient set tree_style "?| ++?-+"
 # hc set_monitors 1280x1024+0+0 1280x1024+1280+0
 # or simply:
 # hc detect_monitors
-hc set_monitors 1920x1080+0+0 1920x1080+0+0
+hc set_monitors 1920x1080+0+0
