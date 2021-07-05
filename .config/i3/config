@@ -17,8 +17,8 @@ font pango:Product Sans 8
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# Open terminal (urxvt)
-bindsym $mod+Return exec urxvt
+# Open terminal (Alacritty)
+bindsym $mod+Return exec alacritty
 
 # Kill focused window
 bindsym $mod+Shift+q kill
@@ -28,6 +28,12 @@ bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
+
+# Move the focused window
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
 
 # Split into horizontal orientation
 bindsym $mod+h split h
@@ -94,33 +100,37 @@ mode "resize" {
 bindsym $mod+r mode resize
 
 # Keybindings
-bindsym $mod+d exec --no-startup-id "dmenu_run"
+bindsym $mod+d exec --no-startup-id "dmenu_run -i -p 'Run:' -fn 'CascadiaCode:pixelsize=13' -sf '#111521' -nb '#131421' -sb '#5a78f5' -nf '#f9f9f9'"
 bindsym $mod+e exec "thunar"
 bindsym $mod+Shift+f exec "firefox"
 bindsym $mod+Shift+Alt+f exec "firefox-developer-edition"
 bindsym $mod+l exec "systemctl suspend"
-bindsym --release Print exec scrot -s '%Y%m%d_%H%M%S.png' -e 'mv -f "$f" ~/pics/screen'
+bindsym $mod+Shift+l exec "systemctl suspend"
+bindsym --release Print exec "scrot -s '%Y%m%d_%H%M%S.png' -e 'mv -f '$f' ~/Pictures/screen'"
 
 # Windows organization
 assign [class = "firefox"] 1
+assign [class = "Atom"] 2
 assign [class = "code"] 2
-assign [class = "minecraft-launcher"] 3
+assign [class = "codium"] 2
+assign [class = "thunar"] 3
 assign [class = "discord"] 4
 assign [class = "spotify"] 5
 
 # Initial launch
-exec_always --no-startup-id "feh --bg-scale Pictures/wallpapers/mountain.jpg"
-exec_always --no-startup-id "killall polybar; polybar -r akinimaginable"
+exec_always --no-startup-id "feh --bg-scale Pictures/wallpapers/purple.jpg"
+exec_always --no-startup-id "killall polybar; polybar -r azote"
 exec_always --no-startup-id "xrdb .Xressources"
 exec_always --no-startup-id "killall picom; picom"
+exec_always --no-startup-id "setxkbmap fr"
 
 # Border
 gaps inner 7
 gaps outer 2
-default_border pixel 0
+default_border pixel 2
 
-client.focused              #0c0c0d #0c0c0d #f9f9fa #0c0c0d #0c0c0d
-client.focused_inactive		#141414 #141414 #f9f9fa #141414 #141414
-client.unfocused            #222222 #222222 #f9f9fa #222222 #222222
-client.urgent               #ffb300 #ffb300 #f9f9fa #ffb300 #ffb300
-client.placeholder          #0c0c0d #0c0c0d #f9f9fa #0c0c0d #0c0c0d
+client.focused                  #5a78f5 #5a78f5 #f9f9fa #5a78f5 #5a78f5
+client.focused_inactive	        #0c0c0d #0c0c0d #f9f9fa #0c0c0d #0c0c0d
+client.unfocused                #141414 #141414 #f9f9fa #141414 #141414
+client.urgent                   #ffb300 #ffb300 #f9f9fa #ffb300 #ffb300
+client.placeholder              #0c0c0d #0c0c0d #f9f9fa #0c0c0d #0c0c0d
